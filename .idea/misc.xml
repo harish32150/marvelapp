@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_edit.xml" value="0.2935185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_marvel_characters.xml" value="0.4050445103857567" />
+        <entry key="app/src/main/res/layout/fragment_marvel_comics.xml" value="0.15070921985815602" />
       </map>
     </option>
   </component>

@@ -3,6 +3,7 @@
   package="com.harish.marvelapp">
 
   <application
+    android:name=".MarvelApp"
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
@@ -10,7 +11,7 @@
     android:supportsRtl="true"
     android:theme="@style/Theme.MarvelApp">
     <activity
-      android:name=".ui.main.MainActivity"
+      android:name=".ui.main.MarvelActivity"
       android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
