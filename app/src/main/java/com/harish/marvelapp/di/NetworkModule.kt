@@ -3,6 +3,7 @@ package com.harish.marvelapp.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.harish.marvelapp.BuildConfig
+import com.harish.marvelapp.network.MarvelAuthInterceptor
 import com.harish.marvelapp.network.MarvelService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -39,12 +40,13 @@ private fun providesOkhttp(): OkHttpClient {
     .writeTimeout(30, TimeUnit.SECONDS)
     .readTimeout(10, TimeUnit.SECONDS)
 
+  client.addNetworkInterceptor(MarvelAuthInterceptor())
+
   if (BuildConfig.DEBUG) {
     val logging = HttpLoggingInterceptor()
     logging.level = HttpLoggingInterceptor.Level.BODY
     client.addInterceptor(logging)
   }
-
   return client.build()
 }
 

@@ -6,7 +6,7 @@ import com.harish.marvelapp.ui.main.MarvelViewModel
 import com.harish.marvelapp.ui.main.fragment.BaseMarvelFragment
 
 class MarvelComicsFragment : BaseMarvelFragment<FragmentMarvelComicsBinding, MarvelViewModel>() {
-  override fun layoutId() = R.layout.fragment_marvel_characters
+  override fun layoutId() = R.layout.fragment_marvel_comics
 
   override fun viewModelClass() = MarvelViewModel::class
 }
