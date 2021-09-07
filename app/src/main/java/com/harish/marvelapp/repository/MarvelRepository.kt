@@ -16,14 +16,14 @@ class MarvelRepository(private val marvelService: MarvelService) {
   /* fetch marvel characters as pager */
   fun fetchCharacters(query: String): Flowable<PagingData<MarvelCharacter>> =
     Pager(
-      config = PagingConfig(pageSize = 2, enablePlaceholders = false),
+      config = PagingConfig(pageSize = 5, enablePlaceholders = false, initialLoadSize = 5),
       pagingSourceFactory = { MarvelCharactersPagingSource(marvelService, query) }
     ).flowable
 
   /* fetch marvel comics as pager */
   fun fetchComics(dateRange: String): Flowable<PagingData<MarvelComic>> =
     Pager(
-      config = PagingConfig(pageSize = 5, enablePlaceholders = false),
+      config = PagingConfig(pageSize = 5, enablePlaceholders = false, initialLoadSize = 5),
       pagingSourceFactory = { MarvelComicPagingSource(marvelService, dateRange) }
     ).flowable
 }

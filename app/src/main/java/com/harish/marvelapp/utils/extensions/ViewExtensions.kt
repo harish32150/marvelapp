@@ -1,5 +1,6 @@
 package com.harish.marvelapp.utils.extensions
 
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 
@@ -19,3 +20,5 @@ fun EditText.actionDone(
     }
   }
 }
+
+fun View.visible(visible: Boolean) = if(visible) View.VISIBLE else View.GONE

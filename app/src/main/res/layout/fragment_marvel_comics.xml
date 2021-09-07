@@ -31,7 +31,6 @@
       android:layout_marginTop="20dp"
       android:layout_marginEnd="16dp"
       android:background="@drawable/bg_edit"
-      android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
       android:imeOptions="actionDone"
       android:maxLines="1"
       android:singleLine="true"
@@ -41,6 +40,16 @@
       app:layout_constraintStart_toStartOf="@id/guide"
       app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      app:layout_constraintBottom_toBottomOf="@id/spinner_filter"
+      app:layout_constraintEnd_toEndOf="@id/spinner_filter"
+      app:layout_constraintTop_toTopOf="@id/spinner_filter"
+      app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24"
+      app:tint="@color/colorLine" />
+
     <androidx.appcompat.widget.AppCompatTextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -49,17 +58,31 @@
       android:textSize="14sp"
       app:layout_constraintBottom_toBottomOf="@id/spinner_filter"
       app:layout_constraintEnd_toStartOf="@id/guide"
-      app:layout_constraintTop_toTopOf="@id/spinner_filter"/>
+      app:layout_constraintTop_toTopOf="@id/spinner_filter" />
 
-    <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rv"
-      android:layout_width="match_parent"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/srl"
+      android:layout_width="wrap_content"
       android:layout_height="0dp"
       android:layout_marginTop="16dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/spinner_filter"
-      tools:listitem="@layout/view_marvel_comic_item" />
+      app:layout_constraintTop_toBottomOf="@id/spinner_filter">
+
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/view_marvel_comic_item" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <include
+      android:id="@+id/view_error"
+      layout="@layout/view_error"
+      app:layout_constraintBottom_toBottomOf="@id/srl"
+      app:layout_constraintEnd_toEndOf="@id/srl"
+      app:layout_constraintStart_toStartOf="@id/srl"
+      app:layout_constraintTop_toTopOf="@id/srl" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

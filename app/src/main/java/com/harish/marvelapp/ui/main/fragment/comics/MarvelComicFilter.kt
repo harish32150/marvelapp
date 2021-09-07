@@ -7,17 +7,19 @@ import java.util.Locale
 enum class MarvelComicFilter(val filterLabel: String) {
   ThisWeek("This Week"),
   NextWeek("Next Week"),
-  LastWeek("Last Week");
+  LastWeek("Last Week"),
+  ThisMonth("This Month");
 
   fun dateRange() =
     when (this) {
-      ThisWeek -> Pair(getWeekDateRange(0), getWeekDateRange(1))
-      NextWeek -> Pair(getWeekDateRange(1), getWeekDateRange(2))
-      LastWeek -> Pair(getWeekDateRange(-1), getWeekDateRange(0))
+      ThisWeek -> Pair(getWeekDate(0), getWeekDate(1))
+      NextWeek -> Pair(getWeekDate(1), getWeekDate(2))
+      LastWeek -> Pair(getWeekDate(-1), getWeekDate(0))
+      ThisMonth -> Pair(getWeekDate(0), getWeekDate(4)) /* considering month as 4weeks */
     }.let { "${it.first},${it.second}" }
 
   /* get starting of week date as range */
-  private fun getWeekDateRange(week: Int) = Calendar.getInstance().apply {
+  private fun getWeekDate(week: Int) = Calendar.getInstance().apply {
     add(Calendar.WEEK_OF_YEAR, week)
   }.let { _calendar ->
     SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(_calendar.time)
